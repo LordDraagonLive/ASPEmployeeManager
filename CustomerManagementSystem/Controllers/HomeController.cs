@@ -8,6 +8,10 @@ using CustomerManagementSystem.Models;
 
 namespace CustomerManagementSystem.Controllers
 {
+
+    /// <summary>
+    /// Controller class for Home pages
+    /// </summary>
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -39,5 +43,11 @@ namespace CustomerManagementSystem.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
     }
 }

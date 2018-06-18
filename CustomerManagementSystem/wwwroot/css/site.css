@@ -5,6 +5,11 @@ body {
     padding-bottom: 20px;
 }
 
+/* Overriding Theme Colour */
+.navColour {
+    background-color: #183465;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

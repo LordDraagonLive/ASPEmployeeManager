@@ -1,0 +1,68 @@
+﻿@model CustomerManagementSystem.Employee
+
+@{
+    ViewData["Title"] = "Add New Employee";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@*<h4>Employee</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                @*<input asp-for="Role" class="form-control" />*@
+                <select asp-for="Role" class="form-control">
+                    <option value="" disabled selected>Please select a Role</option>
+                    <option>Manager</option>
+                    <option>Minor Staff</option>
+                    <option>Accountant</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                @*<input asp-for="Gender" class="form-control" />*@
+                <select asp-for="Gender" class="form-control">
+                    <option value="Null" disabled selected>Please select your gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+            @* post when a user is created and redirects to index page also check is message is null*@
+            @*@if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        alert(ViewBag.Message);
+                    };
+                </script>
+            }*@
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
